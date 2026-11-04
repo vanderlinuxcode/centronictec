@@ -32,7 +32,7 @@
 - **Instituição de Ensino:** SENAC — CEP Jó Rufino
 - **Curso:** Técnico em Desenvolvimento de Sistemas
 - **Disciplina / Projeto:** Sistema web TI Centronictec
-- **Orientador:** Profº Hudson Neves
+- **Orientador:** Hudson Neves
 - **Aluno:** Vanderli Marques dos Reis
 - **Local & Ambiente:** Taguatinga Norte — Oracle Cloud Infrastructure (OCI)
 
@@ -56,29 +56,30 @@ O **TI Centronictec** é um sistema web institucional destinado a apresentar ser
 
 O sistema opera separando a camada de apresentação da integração de backend, comunicando-se com serviços de terceiros e persistência orientada a documentos.
 
+
 ### Diagrama da Arquitetura
 
 ```mermaid
 flowchart TB
-    USER["Visitante / Navegador<br/>ti.centronictec.com.br"]
+    USER["Visitante / Navegador<br>ti.centronictec.com.br"]
 
     subgraph CLOUDFLARE["1. Cloudflare Edge"]
-        CF["Cloudflare Tunnel<br/>HTTPS / Proxy Seguro"]
+        CF["Cloudflare Tunnel<br>HTTPS / Proxy Seguro"]
     end
 
-    subgraph OCI["2. Oracle Cloud Infrastructure — OCI"]
-        UB["OCI Compute (Ubuntu Linux)<br/>Backend Node.js & Express (:3001)"]
+    subgraph OCI["2. Oracle Cloud Infrastructure - OCI"]
+        UB["OCI Compute - Ubuntu Linux<br>Backend Node.js e Express<br>Porta 3001"]
     end
 
     subgraph EXTERNAL["3. Serviços Externos"]
-        MDB["MongoDB Atlas<br/>(Mongoose ODM)"]
-        RCV["API RoboCV<br/>(OTP, Conversas e Mensagens)"]
+        MDB["MongoDB Atlas<br>Mongoose ODM"]
+        RCV["API RoboCV<br>OTP, Conversas e Mensagens"]
     end
 
-    USER -->|"HTTPS"| CF
-    CF -->|"Túnel criptografado"| UB
-    UB -->|"Conexão Mongoose"| MDB
-    UB -->|"Requisições Bearer"| RCV
+    USER -->|HTTPS| CF
+    CF -->|Túnel criptografado| UB
+    UB -->|Conexão Mongoose| MDB
+    UB -->|Requisições Bearer| RCV
 
     classDef dns fill:#e8f0fe,stroke:#4285f4,color:#172554
     classDef cloud fill:#f3e8ff,stroke:#9333ea,color:#581c87
@@ -86,9 +87,11 @@ flowchart TB
     classDef data fill:#fef3c7,stroke:#d97706,color:#78350f
 
     class USER dns
-    class CF,UB cloud
+    class CF cloud
+    class UB app
     class MDB,RCV data
 ```
+
 
 ### Pontos Arquiteturais Chave
 
