@@ -1,4 +1,4 @@
-# TI Centronictec — Sistema Web Institucional e Atendimento Digital
+# TI Centronictec — Sistema Web de Serviços de Tecnologia Computacional e Infraestrutura
 
 ## Sumário
 
