@@ -68,7 +68,7 @@ flowchart TB
     end
 
     subgraph OCI["2. Oracle Cloud Infrastructure - OCI"]
-        UB["OCI Compute - Ubuntu Linux<br>Backend Node.js e Express<br>Porta 3001"]
+        UB["OCI Compute - Ubuntu Linux<br>Backend Node.js e Express<br>Porta 3003"]
     end
 
     subgraph EXTERNAL["3. Serviços Externos"]
